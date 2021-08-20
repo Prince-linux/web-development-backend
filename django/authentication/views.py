@@ -7,7 +7,15 @@ from django.db.models import Q
 
 
 def login_page(request):
+    if request.user.is_authenticated:
+        if request.user_type == 'ADMIN':
+            return redirect('core:admin_home')
+        else:
+            return redirect('core:user_home')
+
     return render(request, "authentication/login.html")
+
+
 
 def login_user(request):
     pass
@@ -81,6 +89,7 @@ def registration(request):
     return render(request, "authentication/signup.html", {
         'form': form
     })
+
 
 def logout(request):
     if request.user.is_authenticated:
