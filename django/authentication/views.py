@@ -1,6 +1,14 @@
-from django.shortcuts import render, redirect
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.db.models import Q
+from django.shortcuts import render, redirect
+
+from authentication.forms import SignupForm, LoginForm
+from authentication.models import User
+from authentication.utils import validate_data
 
 # Create your views here.
 
