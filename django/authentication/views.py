@@ -25,7 +25,7 @@ def login_page(request):
 
 
 
-def login_in(request):
+def login_user(request):
     """Logs the user in
     Retrieves the username and password provided by the
     user after validating the form. The username and
