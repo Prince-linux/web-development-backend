@@ -99,13 +99,14 @@
 						 </div>
 					</div>
                    <form action="{%url 'authentication:login'%}" method="post" name="login">
+                       {% csrf_token %}
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
-                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                              <input type="email" name="{form.email.name}"  class="form-control" id="{form.email.id_for_label}" aria-describedby="emailHelp" placeholder="Enter email">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Password</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                              <input type="password" name="{form.password.name}" id="{form.password.id_for_label}"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                            </div>
                            <div class="form-group">
                               <p class="text-center">By signing up you accept our <a href="#">Terms Of Use</a></p>
@@ -140,22 +141,23 @@
                               <h1 >Signup</h1>
                            </div>
                         </div>
-                        <form action="#" name="registration">
+                        <form action="{% url 'authentication:signup_page' %}" name="registration">
+                            {% csrf_token %}
                            <div class="form-group">
                               <label for="exampleInputEmail1">First Name</label>
-                              <input type="text"  name="firstname" class="form-control" id="firstname" aria-describedby="emailHelp" placeholder="Enter Firstname">
+                              <input type="text"  name="{form.first_name.name}" class="form-control" id="{form.first_name.id_for_label}" aria-describedby="emailHelp" placeholder="Enter Firstname">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Last Name</label>
-                              <input type="text"  name="lastname" class="form-control" id="lastname" aria-describedby="emailHelp" placeholder="Enter Lastname">
+                              <input type="text"  name="{form.last_name.name}" class="form-control" id="{form.last_name.id_for_label}" aria-describedby="emailHelp" placeholder="Enter Lastname">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Email address</label>
-                              <input type="email" name="email"  class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                              <input type="email" name="form.email.name"  class="form-control" id="{form.email.id_for_label}" aria-describedby="emailHelp" placeholder="Enter email">
                            </div>
                            <div class="form-group">
                               <label for="exampleInputEmail1">Password</label>
-                              <input type="password" name="password" id="password"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
+                              <input type="password" name="{form.password.name}" id="{form.password.id_for_label}"  class="form-control" aria-describedby="emailHelp" placeholder="Enter Password">
                            </div>
                            <div class="col-md-12 text-center mb-3">
                               <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
