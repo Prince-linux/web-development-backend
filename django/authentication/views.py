@@ -151,7 +151,7 @@ def registration(request):
                 else:
                         # User already exists
                     messages.warning(request, "A user with that Email already exist")
-                    return render(request, "authentication/signup.html", {
+                    return render(request, "authentication/login.html", {
                         'registration_form': form
                     })
     else:
@@ -159,7 +159,7 @@ def registration(request):
         # to the login page for rendering.
         form = SignupForm()
 
-    return render(request, "authentication/signup.html", {
+    return render(request, "authentication/login.html", {
         'form': form
     })
 
