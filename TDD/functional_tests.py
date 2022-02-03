@@ -33,8 +33,9 @@ class NewVisitorTest(unittest.TestCase):
         time.sleep(1)
         table = self.browser.find_element_by_id('id_list_table')
         rows = table.find_elements_by_tag_name('tr')
-        self.assertTrue(any(row.text == '1: Buy a Gucci Bag' for row in rows),
-                        'New to-do item did not appear in table')
+        self.assertIn('1: Buy a Gucci Bag', [row.text for row in rows])
+        self.assertIn('2: Insert church things into Bag',
+                      [row.text for row in rows])
         # There's still a textbox inviting her to add another item. She
         # enters "Pack church things into bag"
         self.fail('Finish the Test')
