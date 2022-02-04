@@ -47,7 +47,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # The page updates again, and now shows both items on her list
         self.check_for_row_in_list_table('1: Buy a Gucci Bag')
-        self.check_for_row_in_list_table('2: Inert church things into Bag')
+        self.check_for_row_in_list_table('2: Insert church things into Bag')
         self.fail('Finish the Test')
         # Doris wonders if the site will remember her list. Then she sees
         # that the site has generated a unique URL for her -- there is some
